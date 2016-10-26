@@ -1,4 +1,5 @@
 
+
 -------------------------------------------
 -------------------------------------------
 DOCUMENTATION:
@@ -6,20 +7,6 @@ DOCUMENTATION:
 - paddedUrl from AWS is configured to expire in 1 hour (easily changed)
 - When should the client directory be created (on AWS and /disk2)?
 - Where do I need to call app_set("serializeMem", TRUE) ??
-
-
-
-
-(from AWSEngine.class.php::listFiles)
-```php
-	$xenFile = (new \Storage\File\File($this))
-				->setProperty('fileName', $listedFileName)
-				->setProperty('filePath', $pathData['pathToFile'] . self::PATH_DELIMITER . $listedFileName)
-				->setProperty('eTag', $obj['eTag'])
-				->setProperty('lastModifiedTime', $obj['LastModified'])
-				->setProperty('size', $obj['Size']);
-```
-
 
 ---------------------------
 Storage\Engine\Manager
@@ -78,6 +65,16 @@ A light-weight abstract class which the other classes extend.
 
 This base class currently does 3 things:
 
-1 - Adds some convenient help using serialize, __sleep, and __tostring
-2 - Adds (very light) logging functionality which could be extended in future, or just used for dev purposes
-3 - Provides the methods getProperty & setProperty. setProperty returns $this, which allows for setter chaining like this:
+- Adds some convenient help using serialize, __sleep, and __tostring
+- Adds (very light) logging functionality which could be extended in future, or just used for dev purposes
+- Provides the methods getProperty & setProperty. setProperty returns `$this`, which allows for setter chaining like this:
+
+```php
+//{AWSEngine.class.php}->listFiles
+	$xenFile = (new \Storage\File\File($this))
+				->setProperty('fileName', $listedFileName)
+				->setProperty('filePath', $pathData['pathToFile'] . self::PATH_DELIMITER . $listedFileName)
+				->setProperty('eTag', $obj['eTag'])
+				->setProperty('lastModifiedTime', $obj['LastModified'])
+				->setProperty('size', $obj['Size']);
+```
