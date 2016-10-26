@@ -1,8 +1,5 @@
-
-
--------------------------------------------
--------------------------------------------
-DOCUMENTATION:
+General Points
+--------------
 - Default is write to /disk2, read from AWS.
 - paddedUrl from AWS is configured to expire in 1 hour (easily changed)
 - When should the client directory be created (on AWS and /disk2)?
