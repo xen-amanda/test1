@@ -11,13 +11,14 @@ DOCUMENTATION:
 
 
 (from AWSEngine.class.php::listFiles)
+```php
 	$xenFile = (new \Storage\File\File($this))
 				->setProperty('fileName', $listedFileName)
 				->setProperty('filePath', $pathData['pathToFile'] . self::PATH_DELIMITER . $listedFileName)
 				->setProperty('eTag', $obj['eTag'])
 				->setProperty('lastModifiedTime', $obj['LastModified'])
 				->setProperty('size', $obj['Size']);
-
+```
 
 
 ---------------------------
